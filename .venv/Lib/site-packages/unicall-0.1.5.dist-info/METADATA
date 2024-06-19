@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: unicall
+Version: 0.1.5
+Summary: Easy to use RPC library based on uniserde
+License: MIT
+Author: Jakob Pinterits
+Author-email: jakob.pinterits@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: uniserde (>=0.3.6,<0.4.0)
+Description-Content-Type: text/markdown
+
+# Unicall
+
+`unicall` is a simple RPC library based on `uniserde`.
+
+It is still in early development and not recommended for general use.
+

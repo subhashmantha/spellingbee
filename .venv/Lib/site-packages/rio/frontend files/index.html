@@ -1,0 +1,38 @@
+<!doctype html>
+<!--
+Until the CSS is loaded and the server sends us the theme colors, make the
+background dark so that dark mode users don"t get flashbanged by a completely
+white screen
+-->
+<html data-theme="dark" style="background: #333">
+    <head>
+        <title>{title}</title>
+        <meta name="{meta}" />
+        <link rel="icon" type="image/x-icon" href="/rio/favicon.png" />
+        <script>
+            globalThis.SESSION_TOKEN = '{session_token}';
+            globalThis.PING_PONG_INTERVAL_SECONDS = '{ping_pong_interval}';
+            globalThis.RIO_DEBUG_MODE = '{debug_mode}';
+            globalThis.RUNNING_IN_WINDOW = '{running_in_window}';
+            globalThis.CHILD_ATTRIBUTE_NAMES = '{child_attribute_names}';
+
+            globalThis.initialMessages = '{initial_messages}';
+
+            // Create a Promise that resolves when the CSS is done loading.
+            //
+            // Note: This may look like a race condition, since the assignments
+            // happen inside a Promise. but according to MDN this is exactly
+            // equivalent to `Promise.withResolvers`. (Which we're not using
+            // because it's too new.)
+            let resolveCssLoaded, rejectCssLoaded;
+            const cssLoaded = new Promise((resolve, reject) => {
+                resolveCssLoaded = resolve;
+                rejectCssLoaded = reject;
+            });
+        </script>
+      <script type="module" crossorigin src="/rio/frontend/assets/index-CA5y3EV4.js"></script>
+      <link rel="stylesheet" crossorigin href="/rio/frontend/assets/index-BB1xAA4p.css">
+    </head>
+
+    <body class="rio-switcheroo-background"></body>
+</html>

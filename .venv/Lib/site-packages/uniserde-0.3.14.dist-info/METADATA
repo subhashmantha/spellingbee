@@ -1,0 +1,228 @@
+Metadata-Version: 2.3
+Name: uniserde
+Version: 0.3.14
+Summary: Convention based, effortless serialization and deserialization
+Project-URL: repository, https://gitlab.com/Vivern/uniserde
+Author-email: Jakob Pinterits <jakob.pinterits@gmail.com>
+License: Copyright (c) 2023 Jakob Pinterits
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE.txt
+Requires-Python: >=3.10
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: typing-extensions>=4.7.1
+Provides-Extra: bson
+Requires-Dist: pymongo>=4.4.0; extra == 'bson'
+Description-Content-Type: text/markdown
+
+# Convention based, effortless serialization and deserialization
+
+`uniserde` can convert Python classes to/from JSON and BSON without any input
+from your side. Simply define the classes, and the library does the rest.
+
+Define your types as classes with type annotations, and call one of `uniserde`'s
+serialization/deserialization functions:
+
+```py
+from uniserde import Serde
+from datetime import datetime, timezone
+from dataclasses import dataclass
+from bson import ObjectId
+
+
+@dataclass
+class Person(Serde):
+    id: ObjectId
+    name: str
+    birth_date: datetime
+
+
+betty = Person(
+    id=ObjectId(),
+    name="Betty",
+    birth_date=datetime(year=1988, month=12, day=1, tzinfo=timezone.utc),
+)
+
+print(betty.as_json())
+```
+
+This will print a dictionary similar to this one
+
+```py
+{
+    'id': '62bc6c77792fc617c52499d0',
+    'name': 'Betty',
+    'birthDate': '1988-12-01T00:00:00+00:00'
+}
+```
+
+You can easily convert this to a string using Python's built-in `json` module if
+that's what you need.
+
+## API
+
+The API is extremely simple. Functions/Classes you might be interested in are:
+
+- `as_json`, `as_bson`
+
+  Given a class with type annotations, these create a JSON/BSON like dictionary.
+  You can feed those into functions like `json.dump`, or use them as is.
+
+- `from_json`, `from_bson`
+
+  Given a JSON/BSON like dictionary and Python type, these will instantiate the
+  corresponding Python class. Raise `SerdeError` if the values are invalid.
+
+- `Serde` is a helper class you can optionally apply to your models. It adds the
+  convenience functions `as_json`, `as_bson`, `from_json`, and `from_bson`
+  directly to the models.
+
+- Sometimes a class simply acts as a type-safe base, but you really just want to
+  serialize the children of that class. In that case you can decorate the class
+  with `@as_child`. This will store an additional `type` field in the result, so
+  the correct child class can be instantiated when deserializing.
+
+- `as_mongodb_schema` automatically creates JSON schemas compatible with MongoDB
+  from models
+
+- Custom serialization / deserialization can be achieved by inheriting from the
+  `Serde` class and overriding the `as_json`, `as_bson`, `from_json`,
+  `from_bson` and/or `as_mongodb_schema` methods.
+
+- The library also exposes a couple handy type definitions:
+  - `Jsonable`, `Bsonable` -- Any type which can occur in a JSON / BSON file
+    respectively, i.e. (bool, int, float, ...)
+  - `JsonDoc`, `BsonDoc` -- A dictionary mapping strings to `Jsonable`s /
+    `Bsonable`
+
+## Lazy Deserialization
+
+Normally, serialization happens all at once: You tell `uniserde` to create a
+class instance from a JSON, `uniserde` processes all of the fields and returns
+the finished class.
+
+This works great, but can be wasteful if you are working with large documents
+and only need to access few fields. To help with this, you can pass `lazy=True`
+when deserializing any object. `uniserde` will then hold off deserializing
+fields until they are accessed for the first time, saving precious processing
+time.
+
+**A word of caution:** Data is validated as it is deserialized. Since lazy
+deserialization defers work until the data is accessed, this means any data you
+don't access also won't be validated. Thus, lazy serialization can be a very
+powerful tool for speeding up interactions with large objects, but you should
+only use when you are absolutely certain the data is correct. (For example
+because you have just fetched the object from your own, trusted, database.)
+
+## Types & Conventions
+
+The library tries to stick to the naming conventions used by the target formats:
+
+- names in JSON are written in _lowerCamelCase_, as is convention in JavaScript
+- BSON uses the same conventions as JSON
+- Python class names must be in _UpperCamelCase_
+- Python fields must be in _all_lower_case_
+- Python enum values must be in _ALL_UPPER_CASE_
+
+### JSON
+
+| Python               | JSON              | Notes                                                                                                                 |
+| -------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `bool`               | `bool`            |                                                                                                                       |
+| `int`                | `float`           |                                                                                                                       |
+| `float`              | `float`           |                                                                                                                       |
+| `str`                | `str`             |                                                                                                                       |
+| `Tuple`              | `list`            |                                                                                                                       |
+| `List`               | `list`            |                                                                                                                       |
+| `Set`                | `list`            |                                                                                                                       |
+| `Optional`           | value or `None`   |                                                                                                                       |
+| `Any`                | as-is             |                                                                                                                       |
+| `Literal[str]`       | `str`             |                                                                                                                       |
+| `enum.Enum`          | `str`             | Enum values are mapped to their _name_ (**NOT value!**)                                                               |
+| `enum.Flag`          | `list[str]`       | Each flag is encoded the same way a regular `enum.Enum` value would.                                                  |
+| custom class         | `dict`            | Each attribute is stored as key, in _lowerCamelCase_. If marked with `as_child`, an additional `type` field is added. |
+| `bytes`              | `str`             | base64 encoded                                                                                                        |
+| `datttime.datetime`  | `str`             | as ISO 8601 - with timezone. Naïve datetimes are intentionally not supported. Do yourself a favor and don't use them. |
+| `datetime.timedelta` | `float`           | duration, in seconds                                                                                                  |
+| `dict[str, ...]`     | `dict`            |                                                                                                                       |
+| `bson.ObjectId`      | `str`             |                                                                                                                       |
+| `pathlib.Path`       | `str`             | Paths are made absolute before serialization.                                                                         |
+
+### BSON
+
+BSON uses the same conventions as JSON, with just a few changes
+
+| Python              | BSON                | Notes                                                                                    |
+| ------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
+| custom class        | `dict`              | Same as JSON, but any fields named `id` are renamed to `_id` to match MongoDB.           |
+| `bytes`             | `bytes`             |                                                                                          |
+| `datetime.datetime` | `datetime.datetime` | Serialization requires a timezone be set. Deserialization imputes UTC, to match MongoDB. |
+| `bson.ObjectId`     | `bson.ObjectId`     |                                                                                          |
+
+## MongoDB Schema Generation
+
+If you are working with MongoDB you will come to appreciate the automatic schema
+generation. Calling `uniserde.as_mongodb_schema` on any supported class will
+return a MongoDB compatible JSON schema without hassle.
+
+For example, here's the result of `uniserde.as_mongodb_schema(Person)` with the
+`Person` class above:
+
+```py
+{
+    'type': 'object',
+    'properties': {
+        '_id': {
+            'bsonType': 'objectId'
+        },
+        'name': {
+            'type': 'string'
+        },
+        'birthDate': {
+            'bsonType': 'date'
+        }
+    },
+    'additionalProperties': False,
+    'required': [
+        '_id',
+        'name',
+        'birthDate'
+    ]
+}
+```
+
+## TODO
+
+- Support for `Union` is currently very limited. Really only `Optional` is
+  supported (which Python internally maps to `Union`)
+- `Literal` currently only supports strings
+- Extend `as_child`, to allow marking some classes as abstract. i.e. their
+  parents/children can be serialized, but not those classes themselves
+- Being able to specify additional limitations to fields would be nice:
+  - must match regex
+  - minimum / maximum
+  - custom validation functions
+- more Unit tests (custom de-serializers!?)
+- Add more examples to the README
+  - show custom serializers/deserializers
+  - recommended usage
+- regression tracking
+- calling `uniserde.serialize` on nonclasses causes problems, because the
+  serialization `as_type` is guessed incorrectly. e.g. `[1, 2, 3]` will be
+  incorrectly serialized as `list` rather than `list[int]`.

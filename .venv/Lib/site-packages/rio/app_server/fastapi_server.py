@@ -1,0 +1,902 @@
+from __future__ import annotations
+
+import asyncio
+import contextlib
+import functools
+import html
+import io
+import json
+import logging
+import secrets
+import weakref
+from datetime import timedelta
+from pathlib import Path
+from typing import *  # type: ignore
+from xml.etree import ElementTree as ET
+
+import crawlerdetect
+import fastapi
+import timer_dict
+from PIL import Image
+from uniserde import Jsonable, JsonDoc
+
+import rio
+
+from .. import (
+    app,
+    assets,
+    byte_serving,
+    data_models,
+    errors,
+    inspection,
+    routing,
+    utils,
+)
+from ..errors import AssetError
+from ..icons import icon_registry
+from ..transports import FastapiWebsocketTransport, MessageRecorderTransport
+from ..utils import URL
+from .abstract_app_server import AbstractAppServer
+
+try:
+    import plotly  # type: ignore (missing import)
+except ImportError:
+    plotly = None
+
+__all__ = [
+    "FastapiServer",
+]
+
+
+P = ParamSpec("P")
+
+
+# Used to identify search engine crawlers (like googlebot) and serve them
+# without needing a websocket connection
+CRAWLER_DETECTOR = crawlerdetect.CrawlerDetect()
+
+
+@functools.lru_cache(maxsize=None)
+def _build_sitemap(base_url: rio.URL, app: rio.App) -> str:
+    # Find all pages to add
+    page_urls = {
+        rio.URL(""),
+    }
+
+    def worker(
+        parent_url: rio.URL,
+        page: rio.Page,
+    ) -> None:
+        cur_url = parent_url / page.page_url
+        page_urls.add(cur_url)
+
+        for child in page.children:
+            worker(cur_url, child)
+
+    for page in app.pages:
+        worker(rio.URL(), page)
+
+    # Build a XML site map
+    tree = ET.Element(
+        "urlset",
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9",
+    )
+
+    for relative_url in page_urls:
+        full_url = base_url.with_path(relative_url.path)
+
+        url = ET.SubElement(tree, "url")
+        loc = ET.SubElement(url, "loc")
+        loc.text = str(full_url)
+
+    # Done
+    return ET.tostring(tree, encoding="unicode", xml_declaration=True)
+
+
+@functools.lru_cache(maxsize=None)
+def read_frontend_template(template_name: str) -> str:
+    """
+    Read a text file from the frontend directory and return its content. The
+    results are cached to avoid repeated disk access.
+    """
+    return (utils.FRONTEND_FILES_DIR / template_name).read_text(
+        encoding="utf-8"
+    )
+
+
+def add_cache_headers(
+    func: Callable[P, Awaitable[fastapi.Response]],
+) -> Callable[P, Coroutine[None, None, fastapi.Response]]:
+    """
+    Decorator for routes that serve static files. Ensures that the response has
+    the `Cache-Control` header set appropriately.
+    """
+
+    @functools.wraps(func)
+    async def wrapper(*args: P.args, **kwargs: P.kwargs) -> fastapi.Response:
+        response = await func(*args, **kwargs)
+        response.headers["Cache-Control"] = "max-age=31536000, immutable"
+        return response
+
+    return wrapper
+
+
+class FastapiServer(fastapi.FastAPI, AbstractAppServer):
+    def __init__(
+        self,
+        app_: app.App,
+        debug_mode: bool,
+        running_in_window: bool,
+        internal_on_app_start: Callable[[], None] | None,
+    ):
+        super().__init__(
+            title=app_.name,
+            # summary=...,
+            # description=...,
+            openapi_url=None,
+            # openapi_url="/openapi.json" if debug_mode else None,
+            # docs_url="/docs" if debug_mode else None,
+            # redoc_url="/redoc" if debug_mode else None,
+            lifespan=__class__._lifespan,
+        )
+        AbstractAppServer.__init__(
+            self,
+            app_,
+            running_in_window=running_in_window,
+            debug_mode=debug_mode,
+        )
+
+        self.internal_on_app_start = internal_on_app_start
+
+        # While this Event is unset, no new Sessions can be created. This is
+        # used to ensure that no clients (re-)connect while `rio run` is
+        # reloading the app.
+        self._can_create_new_sessions = asyncio.Event()
+        self._can_create_new_sessions.set()
+
+        # Initialized lazily, when the favicon is first requested.
+        self._icon_as_png_blob: bytes | None = None
+
+        # The session tokens and Request object for all clients that have made a
+        # HTTP request, but haven't yet established a websocket connection. Once
+        # the websocket connection is created, these will be turned into
+        # Sessions.
+        self._latent_session_tokens: dict[str, fastapi.Request] = {}
+
+        # The session tokens for all active sessions. These allow clients to
+        # identify themselves, for example to reconnect in case of a lost
+        # connection.
+        self._active_session_tokens: dict[str, rio.Session] = {}
+        self._active_tokens_by_session: dict[rio.Session, str] = {}
+
+        # All assets that have been registered with this session. They are held
+        # weakly, meaning the session will host assets for as long as their
+        # corresponding Python objects are alive.
+        #
+        # Assets registered here are hosted under `/asset/temp-{asset_id}`. In
+        # addition the server also permanently hosts other "well known" assets
+        # (such as javascript dependencies) which are available under public
+        # URLS at `/asset/{some-name}`.
+        self._assets: weakref.WeakValueDictionary[str, assets.Asset] = (
+            weakref.WeakValueDictionary()
+        )
+
+        # All pending file uploads. These are stored in memory for a limited
+        # time. When a file is uploaded the corresponding future is set.
+        self._pending_file_uploads: timer_dict.TimerDict[
+            str, asyncio.Future[list[utils.FileInfo]]
+        ] = timer_dict.TimerDict(default_duration=timedelta(minutes=15))
+
+        # FastAPI
+        self.add_api_route("/robots.txt", self._serve_robots, methods=["GET"])
+        self.add_api_route("/rio/sitemap", self._serve_sitemap, methods=["GET"])
+        self.add_api_route(
+            "/rio/favicon.png", self._serve_favicon, methods=["GET"]
+        )
+        self.add_api_route(
+            "/rio/frontend/assets/{asset_id:path}",
+            self._serve_frontend_asset,
+        )
+        self.add_api_route(
+            "/rio/assets/special/{asset_id:path}",
+            self._serve_special_asset,
+            methods=["GET"],
+        )
+        self.add_api_route(
+            "/rio/assets/hosted/{asset_id:path}",
+            self._serve_hosted_asset,
+            methods=["GET"],
+        )
+        self.add_api_route(
+            "/rio/assets/user/{asset_id:path}",
+            self._serve_user_asset,
+            methods=["GET"],
+        )
+        self.add_api_route(
+            "/rio/assets/temp/{asset_id:path}",
+            self._serve_temp_asset,
+            methods=["GET"],
+        )
+        self.add_api_route(
+            "/rio/icon/{icon_name:path}", self._serve_icon, methods=["GET"]
+        )
+        self.add_api_route(
+            "/rio/upload/{upload_token}",
+            self._serve_file_upload,
+            methods=["PUT"],
+        )
+        self.add_api_websocket_route("/rio/ws", self._serve_websocket)
+
+        # This route is only used in `debug_mode`. When the websocket connection
+        # is interrupted, the frontend polls this route and then either
+        # reconnects or reloads depending on whether its session token is still
+        # valid (i.e. depending on whether the server was restarted or not)
+        self.add_api_route(
+            "/rio/validate-token/{session_token}",
+            self._serve_token_validation,
+        )
+
+        # The route that serves the index.html will be registered later, so that
+        # it has a lower priority than user-created routes.
+
+    async def __call__(self, scope, receive, send):
+        # Because this is a single page application, all other routes should
+        # serve the index page. The session will determine which components
+        # should be shown.
+        self.add_api_route(
+            "/{initial_route_str:path}", self._serve_index, methods=["GET"]
+        )
+
+        return await super().__call__(scope, receive, send)
+
+    @contextlib.asynccontextmanager
+    async def _lifespan(self):
+        await self._on_start()
+
+        # Trigger any internal startup event
+        if self.internal_on_app_start is not None:
+            self.internal_on_app_start()
+
+        try:
+            yield
+        finally:
+            await self._on_close()
+
+    def url_for_user_asset(self, relative_asset_path: Path) -> rio.URL:
+        return rio.URL(f"/rio/assets/user/{relative_asset_path}")
+
+    def weakly_host_asset(self, asset: assets.HostedAsset) -> str:
+        """
+        Register an asset with this server. The asset will be held weakly,
+        meaning the server will host assets for as long as their corresponding
+        Python objects are alive.
+
+        If another asset with the same id is already hosted, it will be
+        replaced.
+        """
+        self._assets[asset.secret_id] = asset
+        return f"/rio/assets/temp/{asset.secret_id}"
+
+    def _get_all_meta_tags(self, title: str | None = None) -> list[str]:
+        """
+        Returns all `<meta>` tags that should be added to the app's HTML page.
+        This includes auto-generated ones, as well as those stored directly in
+        the app.
+        """
+        if title is None:
+            title = self.app.name
+
+        # Prepare the default tags
+        all_tags = {
+            "og:title": title,
+            "description": self.app.description,
+            "og:description": self.app.description,
+            "keywords": "python, web, app, rio",
+            "image": "/rio/favicon.png",
+            "viewport": "width=device-width, initial-scale=1",
+        }
+
+        # Add the user-defined meta tags, overwriting any automatically
+        # generated ones
+        all_tags.update(self.app._custom_meta_tags)
+
+        # Convert everything to HTML
+        result: list[str] = []
+
+        for key, value in all_tags.items():
+            key = html.escape(key)
+            value = html.escape(value)
+            result.append(f'<meta name="{key}" content="{value}">')
+
+        return result
+
+    async def _serve_index(
+        self,
+        request: fastapi.Request,
+        initial_route_str: str,
+    ) -> fastapi.responses.Response:
+        """
+        Handler for serving the index HTML page via fastapi.
+        """
+
+        # Because Rio apps are single-page, this route serves as the fallback.
+        # In addition to legitimate requests for HTML pages, it will also catch
+        # a bunch of invalid requests to other resources. To highlight this,
+        # throw a 404 if HTML is not explicitly requested.
+        #
+        # Currently inactive, because this caused issues behind dumb proxies
+        # that don't pass on the `accept` header.
+
+        # if not request.headers.get("accept", "").startswith("text/html"):
+        #     raise fastapi.HTTPException(
+        #         status_code=fastapi.status.HTTP_404_NOT_FOUND,
+        #     )
+
+        initial_messages = list[JsonDoc]()
+
+        is_crawler = CRAWLER_DETECTOR.isCrawler(
+            request.headers.get("User-Agent")
+        )
+        if is_crawler:
+            # If it's a crawler, immediately create a Session for it. Instead of
+            # a websocket connection, outgoing messages are simply appended to a
+            # list which will be included in the HTML.
+            transport = MessageRecorderTransport()
+            initial_messages = transport.sent_messages
+
+            assert request.client is not None, "How can this happen?!"
+
+            requested_url = rio.URL(str(request.url))
+            try:
+                session = await self.create_session(
+                    initial_message=data_models.InitialClientMessage.from_defaults(
+                        url=str(requested_url),
+                    ),
+                    transport=transport,
+                    client_ip=request.client.host,
+                    client_port=request.client.port,
+                    http_headers=request.headers,
+                )
+            except routing.NavigationFailed:
+                raise fastapi.HTTPException(
+                    status_code=fastapi.status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail=f"Navigation to initial page `{request.url}` has failed.",
+                ) from None
+
+            session.close()
+
+            # If a page guard caused a redirect, tell that to the crawler in a
+            # language it understands
+            if session.active_page_url != requested_url:
+                return fastapi.responses.RedirectResponse(
+                    str(session.active_page_url)
+                )
+
+            session_token = "<crawler>"
+
+            title = " - ".join(
+                page.name for page in session.active_page_instances
+            )
+        else:
+            # Create a session token that uniquely identifies this client
+            session_token = secrets.token_urlsafe()
+            self._latent_session_tokens[session_token] = request
+
+            title = self.app.name
+
+        # Load the template
+        html_ = read_frontend_template("index.html")
+
+        html_ = html_.replace("{session_token}", session_token)
+
+        html_ = html_.replace(
+            "'{child_attribute_names}'",
+            json.dumps(
+                inspection.get_child_component_containing_attribute_names_for_builtin_components()
+            ),
+        )
+
+        html_ = html_.replace(
+            "'{ping_pong_interval}'",
+            str(self.app._ping_pong_interval.total_seconds()),
+        )
+
+        html_ = html_.replace(
+            "'{debug_mode}'",
+            "true" if self.debug_mode else "false",
+        )
+
+        html_ = html_.replace(
+            "'{running_in_window}'",
+            "true" if self.running_in_window else "false",
+        )
+
+        html_ = html_.replace(
+            "'{initial_messages}'", json.dumps(initial_messages)
+        )
+
+        # Since the title is user-defined, it might contain placeholders like
+        # `{debug_mode}`. So it's important that user-defined content is
+        # inserted last.
+        html_ = html_.replace("{title}", html.escape(title))
+
+        # The placeholder for the metadata uses unescaped `<` and `>` characters
+        # to ensure that no user-defined content can accidentally contain this
+        # placeholder.
+        html_ = html_.replace(
+            '<meta name="{meta}" />',
+            "\n".join(self._get_all_meta_tags(title)),
+        )
+
+        # Respond
+        return fastapi.responses.HTMLResponse(html_)
+
+    async def _serve_robots(
+        self, request: fastapi.Request
+    ) -> fastapi.responses.Response:
+        """
+        Handler for serving the `robots.txt` file via fastapi.
+        """
+
+        # TODO: Disallow internal API routes? Icons, assets, etc?
+        request_url = URL(str(request.url))
+        content = f"""
+User-agent: *
+Allow: /
+
+Sitemap: {request_url.with_path("/rio/sitemap")}
+        """.strip()
+
+        return fastapi.responses.Response(
+            content=content,
+            media_type="text/plain",
+        )
+
+    async def _serve_sitemap(
+        self, request: fastapi.Request
+    ) -> fastapi.responses.Response:
+        """
+        Handler for serving the `sitemap.xml` file via fastapi.
+        """
+        return fastapi.responses.Response(
+            content=_build_sitemap(rio.URL(str(request.url)), self.app),
+            media_type="application/xml",
+        )
+
+    async def _serve_favicon(self) -> fastapi.responses.Response:
+        """
+        Handler for serving the favicon via fastapi, if one is set.
+        """
+        # If an icon is set, make sure a cached version exists
+        if self._icon_as_png_blob is None and self.app._icon is not None:
+            try:
+                icon_blob, _ = await self.app._icon.try_fetch_as_blob()
+
+                input_buffer = io.BytesIO(icon_blob)
+                output_buffer = io.BytesIO()
+
+                with Image.open(input_buffer) as image:
+                    image.save(output_buffer, format="png")
+
+            except Exception as err:
+                raise fastapi.HTTPException(
+                    status_code=fastapi.status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail="Could not fetch the app's icon.",
+                ) from err
+
+            self._icon_as_png_blob = output_buffer.getvalue()
+
+        # No icon set or fetching failed
+        if self._icon_as_png_blob is None:
+            return fastapi.responses.Response(status_code=404)
+
+        # There is an icon, respond
+        return fastapi.responses.Response(
+            content=self._icon_as_png_blob,
+            media_type="image/png",
+        )
+
+    async def _serve_frontend_asset(
+        self,
+        request: fastapi.Request,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        response = await self._serve_file_from_directory(
+            request,
+            utils.FRONTEND_ASSETS_DIR,
+            asset_id + ".gz",
+        )
+        response.headers["content-encoding"] = "gzip"
+
+        return response
+
+    @add_cache_headers
+    async def _serve_special_asset(
+        self,
+        request: fastapi.Request,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        # The python plotly library already includes a minified version of
+        # plotly.js. Rather than shipping another one, just serve the one
+        # included in the library.
+        if asset_id == "plotly.min.js":
+            if plotly is None:
+                return fastapi.responses.Response(status_code=404)
+
+            return fastapi.responses.Response(
+                content=plotly.offline.get_plotlyjs(),
+                media_type="text/javascript",
+            )
+
+        return fastapi.responses.Response(status_code=404)
+
+    async def _serve_hosted_asset(
+        self,
+        request: fastapi.Request,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        return await self._serve_file_from_directory(
+            request,
+            utils.HOSTED_ASSETS_DIR,
+            asset_id,
+        )
+
+    async def _serve_user_asset(
+        self,
+        request: fastapi.Request,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        return await self._serve_file_from_directory(
+            request,
+            self.app.assets_dir,
+            asset_id,
+        )
+
+    @add_cache_headers
+    async def _serve_temp_asset(
+        self,
+        request: fastapi.Request,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        # Get the asset's Python instance. The asset's id acts as a secret, so
+        # no further authentication is required.
+        try:
+            asset = self._assets[asset_id]
+        except KeyError:
+            return fastapi.responses.Response(status_code=404)
+
+        # Fetch the asset's content and respond
+        if isinstance(asset, assets.BytesAsset):
+            return fastapi.responses.Response(
+                content=asset.data,
+                media_type=asset.media_type,
+            )
+        elif isinstance(asset, assets.PathAsset):
+            return byte_serving.range_requests_response(
+                request,
+                file_path=asset.path,
+                media_type=asset.media_type,
+            )
+        else:
+            assert False, f"Unable to serve asset of unknown type: {asset}"
+
+    @add_cache_headers
+    async def _serve_file_from_directory(
+        self,
+        request: fastapi.Request,
+        directory: Path,
+        asset_id: str,
+    ) -> fastapi.responses.Response:
+        # Construct the path to the target file
+        asset_file_path = directory / asset_id
+
+        # Make sure the path is inside the hosted assets directory
+        asset_file_path = asset_file_path.absolute()
+        if not asset_file_path.is_relative_to(directory):
+            logging.warning(
+                f'Client requested asset "{asset_id}" which is not located'
+                f" inside the assets directory. Somebody might be trying to"
+                f" break out of the assets directory!"
+            )
+            return fastapi.responses.Response(status_code=404)
+
+        return byte_serving.range_requests_response(
+            request,
+            file_path=asset_file_path,
+        )
+
+    @add_cache_headers
+    async def _serve_icon(self, icon_name: str) -> fastapi.responses.Response:
+        """
+        Allows the client to request an icon by name. This is not actually the
+        mechanism used by the `Icon` component, but allows JavaScript to request
+        icons.
+        """
+        # Get the icon's SVG
+        try:
+            svg_source = icon_registry.get_icon_svg(icon_name)
+        except AssetError:
+            return fastapi.responses.Response(status_code=404)
+
+        # Respond
+        return fastapi.responses.Response(
+            content=svg_source,
+            media_type="image/svg+xml",
+        )
+
+    async def _serve_file_upload(
+        self,
+        upload_token: str,
+        file_names: list[str],
+        file_types: list[str],
+        file_sizes: list[str],
+        # If no files are uploaded `files` isn't present in the form data at
+        # all. Using a default value ensures that those requests don't fail
+        # because of "missing parameters".
+        #
+        # Lists are mutable, make sure not to modify this value!
+        file_streams: list[fastapi.UploadFile] = [],
+    ):
+        # Try to find the future for this token
+        try:
+            future = self._pending_file_uploads.pop(upload_token)
+        except KeyError:
+            raise fastapi.HTTPException(
+                status_code=fastapi.status.HTTP_400_BAD_REQUEST,
+                detail="Invalid upload token.",
+            )
+
+        # Make sure the same number of values was received for each parameter
+        n_names = len(file_names)
+        n_types = len(file_types)
+        n_sizes = len(file_sizes)
+        n_streams = len(file_streams)
+
+        if n_names != n_types or n_names != n_sizes or n_names != n_streams:
+            raise fastapi.HTTPException(
+                status_code=fastapi.status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="Inconsistent number of files between the different message parts.",
+            )
+
+        # Parse the file sizes
+        parsed_file_sizes: list[int] = []
+        for file_size in file_sizes:
+            try:
+                parsed = int(file_size)
+            except ValueError:
+                raise fastapi.HTTPException(
+                    status_code=fastapi.status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail="Invalid file size.",
+                )
+
+            if parsed < 0:
+                raise fastapi.HTTPException(
+                    status_code=fastapi.status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail="Invalid file size.",
+                )
+
+            parsed_file_sizes.append(parsed)
+
+        # Complete the future
+        future.set_result(
+            [
+                utils.FileInfo(
+                    name=file_names[ii],
+                    size_in_bytes=parsed_file_sizes[ii],
+                    media_type=file_types[ii],
+                    _contents=await file_streams[ii].read(),
+                )
+                for ii in range(n_names)
+            ]
+        )
+
+        return fastapi.responses.Response(
+            status_code=fastapi.status.HTTP_200_OK
+        )
+
+    async def file_chooser(
+        self,
+        session: rio.Session,
+        *,
+        file_extensions: Iterable[str] | None = None,
+        multiple: bool = False,
+    ) -> utils.FileInfo | tuple[utils.FileInfo, ...]:
+        # Create a secret id and register the file upload with the app server
+        upload_id = secrets.token_urlsafe()
+        future = asyncio.Future[list[utils.FileInfo]]()
+
+        self._pending_file_uploads[upload_id] = future
+
+        # Allow the user to specify both `jpg` and `.jpg`
+        if file_extensions is not None:
+            file_extensions = [
+                ext if ext.startswith(".") else f".{ext}"
+                for ext in file_extensions
+            ]
+
+        # Tell the frontend to upload a file
+        await session._request_file_upload(
+            upload_url=f"/rio/upload/{upload_id}",
+            file_extensions=file_extensions,
+            multiple=multiple,
+        )
+
+        # Wait for the user to upload files
+        files = await future
+
+        # Raise an exception if no files were uploaded
+        if not files:
+            raise errors.NoFileSelectedError()
+
+        # Ensure only one file was provided if `multiple` is False
+        if not multiple and len(files) != 1:
+            logging.warning(
+                "Client attempted to upload multiple files when `multiple` was False."
+            )
+            raise errors.NoFileSelectedError()
+
+        # Return the file info
+        if multiple:
+            return tuple(files)  # type: ignore
+        else:
+            return files[0]
+
+    async def _serve_token_validation(
+        self, request: fastapi.Request, session_token: str
+    ) -> fastapi.Response:
+        return fastapi.responses.JSONResponse(
+            session_token in self._active_session_tokens
+        )
+
+    @contextlib.contextmanager
+    def temporarily_disable_new_session_creation(self):
+        self._can_create_new_sessions.clear()
+
+        try:
+            yield
+        finally:
+            self._can_create_new_sessions.set()
+
+    async def _serve_websocket(
+        self,
+        websocket: fastapi.WebSocket,
+        sessionToken: str,
+    ) -> None:
+        """
+        Handler for establishing the websocket connection and handling any
+        messages.
+        """
+        # Blah, naming conventions
+        session_token = sessionToken
+        del sessionToken
+
+        rio._logger.debug(
+            f"Received websocket connection with session token `{session_token}`"
+        )
+
+        # Wait until we're allowed to accept new websocket connections. (This is
+        # temporarily disable while `rio run` is reloading the app.)
+        await self._can_create_new_sessions.wait()
+
+        # Accept the socket. I can't figure out how to access the close reason
+        # in JS unless the connection was accepted first, so we have to do this
+        # even if we are going to immediately close it again.
+        await websocket.accept()
+
+        # Look up the session token. If it is valid the session's duration is
+        # refreshed so it doesn't expire. If the token is not valid, don't
+        # accept the websocket.
+        try:
+            request = self._latent_session_tokens.pop(session_token)
+        except KeyError:
+            # Check if this is a reconnect
+            try:
+                sess = self._active_session_tokens[session_token]
+            except KeyError:
+                # Inform the client that this session token is invalid
+                await websocket.close(
+                    3000,  # Custom error code
+                    "Invalid session token.",
+                )
+                return
+
+            # Check if this session still has a functioning websocket
+            # connection. Browsers have a "duplicate tab" feature that can
+            # create a 2nd tab with the same session token as the original one,
+            # and in that case we want to create a new session.
+            if sess._transport is not None:
+                await websocket.close(
+                    3000,  # Custom error code
+                    "Invalid session token.",
+                )
+                return
+
+            # Replace the session's websocket
+            sess._transport = transport = FastapiWebsocketTransport(websocket)
+
+            # Make sure the client is in sync with the server by refreshing
+            # every single component
+            await sess._send_all_components_on_reconnect()
+
+            # Start listening for incoming messages. The session has just
+            # received a new websocket connection, so a new task is needed.
+            #
+            # The previous one was closed when the transport was replaced.
+            self._session_serve_tasks[sess] = asyncio.create_task(
+                self._serve_session(sess),
+                name=f"`Session.serve` for session id `{id(sess)}`",
+            )
+
+        else:
+            transport = FastapiWebsocketTransport(websocket)
+
+            try:
+                sess = await self._create_session_from_websocket(
+                    session_token, request, websocket, transport
+                )
+            except fastapi.WebSocketDisconnect:
+                # If the websocket disconnected while we were initializing the
+                # session, just close it
+                return
+
+            self._active_session_tokens[session_token] = sess
+            self._active_tokens_by_session[sess] = session_token
+
+            # Trigger a refresh. This will also send the initial state to
+            # the frontend.
+            await sess._refresh()
+
+        # Apparently the websocket becomes unusable as soon as this function
+        # exits, so we must wait until we no longer need the websocket.
+        #
+        # When exiting `rio run` with Ctrl+C, this task is cancelled and screams
+        # loudly in the console. Suppress that by catching the exception.
+        try:
+            await transport.closed.wait()
+        except asyncio.CancelledError:
+            pass
+
+    async def _create_session_from_websocket(
+        self,
+        session_token: str,
+        request: fastapi.Request,
+        websocket: fastapi.WebSocket,
+        transport: FastapiWebsocketTransport,
+    ) -> rio.Session:
+        assert request.client is not None, "Why can this happen?"
+
+        # Upon connecting, the client sends an initial message containing
+        # information about it. Wait for that, but with a timeout - otherwise
+        # evildoers could overload the server with connections that never send
+        # anything.
+        initial_message_json: Jsonable = await asyncio.wait_for(
+            websocket.receive_json(),
+            timeout=60,
+        )
+
+        initial_message = data_models.InitialClientMessage.from_json(
+            initial_message_json  # type: ignore
+        )
+
+        try:
+            sess = await self.create_session(
+                initial_message,
+                transport=transport,
+                client_ip=request.client.host,
+                client_port=request.client.port,
+                http_headers=request.headers,
+            )
+        except routing.NavigationFailed:
+            # TODO: Notify the client? Show an error?
+            raise fastapi.HTTPException(
+                status_code=fastapi.status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Navigation to initial page `{request.url}` has failed.",
+            ) from None
+
+        return sess
+
+    def _after_session_closed(self, session: rio.Session) -> None:
+        super()._after_session_closed(session)
+
+        session_token = self._active_tokens_by_session.pop(session)
+        del self._active_session_tokens[session_token]

@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: imy
+Version: 0.3.6
+Summary: Random utilities I can't go without
+Home-page: https://gitlab.com/Vivern/i-miss-you
+License: MIT
+Author: Jakob Pinterits
+Author-email: jakob.pinterits@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: introspection (>=1.8.0,<2.0.0)
+Requires-Dist: json5 (>=0.9.22,<0.10.0)
+Requires-Dist: motor (>=3.3.2,<4.0.0)
+Requires-Dist: uniserde (>=0.3.13,<0.4.0)
+Project-URL: Repository, https://gitlab.com/Vivern/i-miss-you
+Description-Content-Type: text/markdown
+
+# I Miss You
+
+Utilities I can't go without.
+
+This package contains a bunch of common functionality I tend to share across
+projects. It's a bit of a grab bag - maybe you'll find something useful to you.
+
