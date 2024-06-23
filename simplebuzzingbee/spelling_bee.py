@@ -3,6 +3,9 @@ def spelling_bee():
     from load_data import read_load_data
     import random
     import pyttsx3
+    from gtts import gTTS
+    from pygame import mixer
+    import time
 
     sg.theme('Light Blue 7')  # Let's set our own color theme
     score=0
@@ -27,6 +30,7 @@ def spelling_bee():
 
     #STEP 2 - create the window_spelling
     window_spelling = sg.Window('Spelling Bee Edventure!', layout_spelling)
+
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[1].id)
@@ -34,8 +38,10 @@ def spelling_bee():
     a,b,c = read_load_data()
     # STEP3 - the event loop
     while True:
+
         event, values = window_spelling.read()   # Read the event that happened and the values dictionary
         print(event, values)
+        window_spelling['-IN-'].bind("<Return>", "_Enter")
         if count!=-99:
             word = c[a[count]].get('word', 'None')
             defn = c[a[count]].get('meaning', 'None')
@@ -54,15 +60,26 @@ def spelling_bee():
             pos = c[a[0]].get('part_of_speech', 'None')
             loo = c[a[0]].get('origins', 'None')
         if event == 'Speak':
-            engine.say(word)
-            engine.runAndWait()
+            tts = gTTS(word)
+
+
+            try:
+                tts.save(word + '.mp3')
+            except:
+                print('file exists')
+            mixer.init()
+            mixer.music.load("{}.mp3".format(word))
+            mixer.music.play()
+            # time.sleep(10)
+            # engine.say(word)
+            # engine.runAndWait()
         if event == 'Definition':
             window_spelling['-DEFN-'].update(defn)
         if event == 'Part Of Speech':
             window_spelling['-POS-'].update(pos)
         if event == 'Language Of Origin':
             window_spelling['-LOO-'].update(loo)
-        if event == 'Submit':
+        if event == 'Submit' or event == "-IN-_Enter":
             if values['-IN-'] == word and word not in used_words:
                 score = score + 1
                 window_spelling['-SCORE-'].update(score)
