@@ -1,0 +1,366 @@
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Create account 
+Log in 
+ Create account
+ Log in
+Contributions
+Talk
+  (Top)  
+   1 Indirect and direct borrowings     Toggle Indirect and direct borrowings subsection      1.1 Vernacular borrowings       1.1.1 Romance languages         1.1.2 Other           1.2 Learned borrowings         1.3 Usage in neologisms         1.4 Through other languages         1.5 Vernacular or learned doublets         1.6 From modern Greek       
+   1.1 Vernacular borrowings       1.1.1 Romance languages         1.1.2 Other       
+   1.1.1 Romance languages     
+   1.1.2 Other     
+   1.2 Learned borrowings     
+   1.3 Usage in neologisms     
+   1.4 Through other languages     
+   1.5 Vernacular or learned doublets     
+   1.6 From modern Greek     
+   2 Greek as an intermediary     
+   3 Written form of Greek words in English     
+   4 Pronunciation     
+   5 Inflectional endings and plurals     
+   6 Verbs     
+   7 Borrowings and cognates     
+   8 Phrases     
+   9 Calques and translations     
+   10 Statistics     Toggle Statistics subsection      10.1 Most common       
+   10.1 Most common     
+   11 See also     
+   12 References     Toggle References subsection      12.1 Citations         12.2 Sources       
+   12.1 Citations     
+   12.2 Sources     
+   13 External links     
+Deutsch
+Article
+Talk
+Read
+Edit
+View history
+Read
+Edit
+View history
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Cite this page
+Get shortened URL
+Download QR code
+Wikidata item
+Download as PDF
+Printable version
+vernacular borrowings, transmitted orally through Vulgar Latin directly into Old English, e.g., 'butter' (butere, from Latin butyrum &lt; βούτυρον), or through French, e.g., 'ochre';
+learned borrowings from classical Greek texts, often via Latin, e.g., 'physics' (&lt; Latin physica &lt; τὰ φυσικά);
+a few borrowings transmitted through other languages, notably Arabic scientific and philosophical writing, e.g., 'alchemy' (&lt; χημεία);
+direct borrowings from Modern Greek, e.g., 'ouzo' (ούζο);
+neologisms (coinages) in post-classical Latin or modern languages using classical Greek roots, e.g., 'telephone' (&lt; τῆλε + φωνή) or a mixture of Greek and other roots, e.g., 'television' (&lt; Greek τῆλε + English vision &lt; Latin visio); these are often shared among the modern European languages, including Modern Greek.
+chair &lt;&lt; καθέδρα (cf. 'cathedra');
+bishop &lt;&lt; epískopos (ἐπίσκοπος 'overseer');
+priest &lt;&lt; presbýteros (πρεσβύτερος 'elder'); and
+telescope &lt; τηλεσκόπος 'far-seeing', refers to an optical instrument for seeing far away rather than a person who can see far into the distance;
+phlogiston &lt; φλογιστόν 'burnt thing', is a supposed fire-making potential rather than something which has been burned, or can be burned; and
+bacterium &lt; βακτήριον 'stick (diminutive)', is a kind of microorganism rather than a small stick or staff.
+utopia (1516; οὐ 'not' + τόπος 'place')[10]
+zoology (1669; ζῷον + λογία)
+hydrodynamics (1738; ὕδωρ + δυναμικός)
+photography (1834; φῶς + γραφικός)
+oocyte (1895; ᾠόν + κύτος)
+helicobacter (1989; ἕλιξ + βακτήριον)
+television (τῆλε + Latin vision);
+metalinguistic (μετά + Latin lingua + -ιστής + -ικος); and
+garbology (English garbage + -ολογία).
+gas (&lt; χάος chaos) is irregular both in formation and in spelling;
+hadron &lt; ἁδρός with the suffix -on, itself abstracted from Greek anion (ἀνιόν);
+henotheism &lt; ἑνό(ς) 'one' + θεός 'god', though heno- is not used as a prefix in Greek;
+taxonomy &lt; τάξις 'order' + -nomy (-νομία 'study of'), where the "more etymological form" is taxinomy,[1][12] as found in ταξίαρχος, 'taxiarch', and the neologism taxidermy. Modern Greek uses ταξινομία in its reborrowing.[13]
+psychedelic &lt; ψυχή 'psyche' + δηλοῦν 'make manifest, reveal'; the regular formation would be psychodelic[14] or psychodelotic;[15]
+telegram; the regular formation would have been telegrapheme;[16]
+hecto-, kilo-, myria-, etymologically hecato-, chilio-, myrio-;[17]
+heuristic, regular formation heuretic;
+chrysalis, regular spelling chrysallis;
+ptomaine, regular formation ptomatine;
+kerosene, hydrant, symbiont.
+-cyte or cyto- &lt; κύτος 'container', means biological cells, not arbitrary containers.
+-oma &lt; -ωμα, a generic morpheme forming deverbal nouns, such as diploma ('a folded thing') and glaucoma ('greyness'), comes to have the very narrow meaning of 'tumor' or 'swelling', on the model of words like carcinoma &lt; καρκίνωμα. For example, melanoma does not come from μελάνωμα 'blackness', but rather from the modern combining forms melano- ('dark' [in biology]) + -oma ('tumor').
+-itis &lt; -ῖτις, a generic adjectival suffix; in medicine used to mean a disease characterized by inflammation: appendicitis, conjunctivitis, ..., and now facetiously generalized to mean "feverish excitement".[18]
+-osis &lt; -ωσις, originally a state, condition, or process; in medicine, used for a disease.[18]
+-athon or -a-thon (from the portmanteau word walkathon, from walk + (mar)athon).
+-ase, used in chemistry for enzymes, is abstracted from diastase, where -ασις is not a morpheme at all in Greek.
+-on for elementary particles, from electron: lepton, neutron, phonon, ...
+-nomics refers specifically to economics: Reaganomics.
+alchemy (al- + χημεία or χημία) chemist is a back-formation from alchemist
+chemist is a back-formation from alchemist
+elixir (al- + ξήριον)
+alembic (al- + ἄμβιξ)
+bottarga (ᾠοτάριχον)
+tajine (τάγηνον)
+carat (κεράτιον)
+talisman (τέλεσμα)
+possibly quintal (κεντηνάριον &lt; Latin centenarium (pondus)).
+seine (a kind of fishing net) comes from a West Germanic form *sagīna, from Latin sagēna, from σαγήνη.
+effendi comes from Turkish, borrowed from Medieval Greek αυθέντης (/afˈθendis/, 'lord').
+hora (the dance) comes from Romanian and Modern Hebrew, borrowed from χορός 'dance'.
+ἀδάμας adamant, diamond;
+ἀμυγδάλη amygdala, almond;
+ἀντίφωνα antiphon, anthem;
+ἀποθήκη apothec(ary), boutique via French, bodega via Spanish;
+ἀσϕόδελος asphodel, daffodil;
+αὐθεντικός authentic, effendi (αὐθέντης via Turkish);
+βάλσαμον (probably itself a borrowing from Semitic) balsam, balm;
+βάσις basis, base, bass (voice);
+βλάσφημος blasphemy, blame;
+βούτυρον butyr(ic), butter;
+διάβολος diabol(ic), devil;
+δραχμή drachma, dram, dirhem via Arabic;
+ἔλαιον elaeo-, oil, olive, oleum, latke via Russian and Yiddish;
+ἐλεημοσύνη eleemosynary, alms;
+ἐπίσκοπος episcop(al), bishop;
+ζῆλος zeal, jealous;
+ἡμικρανία hemicrania, migraine;
+θησαυρός thesaurus, treasure;
+ἰῶτα iota, jot;
+καθέδρα cathedra(l), chair, chaise;
+κέρας/κέρατ- 'horn' keratin, carat via Arabic;
+κόλπος 'lap, womb, hollow, bay' colp(itis), gulf;
+κυβερνᾶν cybernetics, govern;
+πάπυρος papyrus, paper;
+παροικία parochial, parish;
+πόδιον podium, pew;
+πρεσβύτερος presbyter, priest;
+πυξίς pyx(is), box;
+σκάνδαλον scandal, slander;
+τρίπους/τρίποδ- tripod, tripos (both learned);
+τύμπανον 'drum' tympanum 'eardrum', timbre, timpani;
+φρενετικός frenetic, frantic;
+χειρουργός chirurgical, surgeon;
+χορός chorus, choir;
+χρῖσμα chrism, cream;
+χρῑστιᾱνός Christian, christen, cretin;[23]
+ὥρα horo(scope), hour.
+γραμματική grammatic(al): grammar, glamor, grimoire;
+δίσκος discus: disc, dish, dais, and desk;
+κιθάρα cither: guitar, zither, gittern, cittern, etc.;
+κρύπτη crypt: grotto, (under)croft;
+παραβολή parabola: parable; additional doublets in Romance give palaver, parol, and parole;
+ϕαντασία phantasy, fantasy, fantasia; fancy in 15th-century English.
+retsina
+ouzo
+souvlaki (&lt; Latin)
+taverna (&lt; Italian)
+moussaka (&lt; Turkish &lt; Arabic)
+baklava (&lt; Turkish)
+feta (&lt; Italian)
+bouzouki (&lt; Turkish)
+gyro (the food, a calque of Turkish döner).
+rabbi (ραββί)
+seraphim (σεραφείμ, σεραφίμ)
+paradise (παράδεισος &lt; Hebrew &lt; Persian)
+pharaoh (Φαραώ &lt; Hebrew &lt; Egyptian)
+Greek υ was written as 'y'
+η as 'e'
+χ as 'ch'
+φ as 'ph'
+κ as 'c'
+rough breathings as 'h'
+both ι and ει as 'i'
+the Latinate digraphs ae and oe;
+the ligatures æ and œ; and
+the simple letter e.
+eureka (cf. heuristic);
+kaleidoscope (the regular spelling would be calidoscope[6])
+kinetic (cf. cinematography);
+krypton (cf. cryptic);
+acolyte (&lt; ἀκόλουθος; acoluth would be the etymological spelling, but acolythus, acolotus, acolithus are all found in Latin);[25]
+stoichiometry (&lt; στοιχεῖον; regular spelling would be st(o)echio-).
+aneurysm was formerly often spelled aneurism on the assumption that it uses the usual -ism ending.
+If it includes ph pronounced as /f/ or y between consonants, it is very likely Greek, with some exceptions, such as nephew, cipher, triumph.[26]
+If it includes rrh, phth, or chth; or starts with hy-, ps-, pn-, or chr-; or the rarer pt-, ct-, chth-, rh-, x-, sth-, mn-, tm-, gn- or bd-, then it is Greek, with some exceptions: gnat, gnaw, gneiss.
+ptarmigan is from a Gaelic word, the p having been added by false etymology;
+style is probably written with a 'y' because the Greek word στῦλος 'column' (as in peristyle, 'surrounded by columns') and the Latin word stilus, 'stake, pointed instrument', were confused.
+trophy, though ultimately of Greek origin, did not have a φ but a π in its Greek form, τρόπαιον.
+-ον: phenomenon, criterion, neuron, lexicon;
+-∅: plasma, drama, dilemma, trauma (-ma is derivational, not inflectional);
+-ος: chaos, ethos, asbestos, pathos, cosmos;
+-ς: climax (ξ x = k + s), helix, larynx, eros, pancreas, atlas;
+-η: catastrophe, agape, psyche;
+-ις: analysis, basis, crisis, emphasis;
+-ης: diabetes, herpes, isosceles.
+hoi polloi 'the many'
+eureka 'I have found [it]'
+kalos kagathos 'beautiful and virtuous'
+hapax legomenon 'once said'
+kyrie eleison 'Lord, have mercy'
+(grammatical) case, from casus ('an event', 'something that has fallen'), a semantic calque of Greek πτώσις ('a fall');
+nominative, from nōminātīvus, a translation of Greek ὀνομαστική;
+adverb, a morphological calque of Greek ἐπίρρημα as ad- + verbum;
+magnanimous, from Greek μεγάθυμος (lit. 'great spirit');
+essence, from essentia, which was constructed from the notional present participle *essens, imitating Greek οὐσία.[30]
+substance, from substantia, a calque of Greek υπόστασις (cf. hypostasis);[31]
+Cicero coined moral on analogy with Greek ηθικός.[32]
+recant is modeled on παλινῳδεῖν.[33]
+deus ex machina 'god out of the machine' was calqued from the Greek apò mēkhanês theós (ἀπὸ μηχανῆς θεός).
+materia medica is a short form of Dioscorides' De Materia Medica, from Περὶ ὕλης ἰατρικῆς.
+quod erat demonstrandum (Q.E.D.) is a calque of ὅπερ ἔδει δεῖξαι.
+quintessence is post-classical quinta essentia, from Greek πέμπτη οὐσία.
+English commonplace is a calque of locus communis, itself a calque of Greek κοινός τόπος.
+subject matter is a calque of subiecta māteria, itself a calque of Aristotle's phrase "ἡ ὑποκειμένη ὕλη."
+wisdom tooth came to English from dentes sapientiae, from Arabic aḍrāsu 'lḥikmi, from σωϕρονιστῆρες, used by Hippocrates.
+political animal is from πολιτικὸν ζῷον (in Aristotle's Politics).
+Ancient Greece portal
+Language portal
+Linguistics portal
+List of Greek and Latin roots in English
+List of Greek morphemes used in English
+List of Latin and Greek words commonly used in systematic names
+Transliteration of Greek into English
+Classical compound
+Hybrid word
+Latin influence in English
+^ a b Oxford English Dictionary, by subscription 
+^ Online Etymological Dictionary, free 
+^ Merriam-Webster Dictionary, free 
+^ American Heritage Dictionary of the English Language, free 
+^ Ayers, Donald M. 1986. English Words from Latin and Greek Elements. (2nd ed.). p. 158. 
+^ a b Tom McArthur, ed., The Oxford companion to the English language, 1992, .mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a{background-size:contain}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a{background-size:contain}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a{background-size:contain}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#2C882D;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911F}html.skin-theme-clientpref-night .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-night .mw-parser-output .cs1-hidden-error{color:#f8a397}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-os .mw-parser-output .cs1-hidden-error{color:#f8a397}html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911F}}ISBN 019214183X, s.v. 'Greek', p. 453-454 
+^ This must have been an early borrowing, since the Latin v reflects a still-pronounced digamma; the earliest attested form of it is the Mycenaean Greek 𐀁𐀨𐀷, e-ra3-wo 'elaiwo(n)', attested in Linear B syllabic script. (see C.B. Walker, John Chadwick, Reading the Past: Ancient Writing from Cuneiform to the Alphabet, 1990, ISBN 0520074319, p. 161) The Greek word was in turn apparently borrowed from a pre-Indo-European Mediterranean substrate; cf. Greek substrate language. 
+^ Carl Darling Buck, A Dictionary of Selected Synonyms in the Principal Indo-European Languages (ISBN 0-226-07937-6) notes that the word has the form of a compound βοΰς + τυρός 'cow-cheese', possibly a calque from Scythian, or possibly an adaptation of a native Scythian word. 
+^ Okrent, Arika. October 8, 2014. "5 Words That Are Spelled Weird Because Someone Got the Etymology Wrong." Mental Floss. (Also in OED.) 
+^ The 14th-century Byzantine monk Neophytos Prodromenos independently coined the word in Greek in his Against the Latins, with the meaning 'absurdity'. 
+^ These are all listed as "irregularly formed" in the Oxford English Dictionary. 
+^ Both are used in French; see: Jean-Louis Fisher, Roselyne Rey, "De l'origine et de l'usage des termes taxinomie-taxonomie", Documents pour l’histoire du vocabulaire scientifique, Institut national de la langue française, 1983, 5:97-113 
+^ Andriotis et al., Λεξικό της κοινής νεοελληνικής = Triantafyllidis Dictionary, s.v. 
+^ Davis, Wade (1997). One River. Simon &amp; Schuster. p. 120. ISBN 978-0-684-83496-2. 
+^ Nicholas, Nick (2022). "Are there English words composed of Greek-derived morphemes and/or affixes that aren't actually Greek words and only exist in English?". Quora. Retrieved 2024-01-19. 
+^ Oxford English Dictionary, s.v. 
+^ Thomas Young as reported in Brewster, David (1832). The Edinburgh Encyclopaedia. Vol. 12 (1st American ed.). Joseph and Edward Parker. Retrieved 2021-11-22. 
+^ a b Simeon Potter, Our language, Penguin, 1950, p. 43 
+^ N. Lozac'h, "Extension of Rules A-1.1 and A-2.5 concerning numerical terms used in organic chemical nomenclature (Recommendations 1986)", Pure and Applied Chemistry 58:12:1693-1696 doi:10.1351/pac198658121693, under "Discussion", p. 1694-1695 full texte.g.%2C%20nona-%20for%209%2C%20undeca-%20for%2011%2C%20nonaconta-%20for%2090). deep link to WWW version 
+^ Skeat gives more on p. 605-606, but the Oxford English Dictionary does not agree with his etymologies of cobalt, nickel, etc. 
+^ Walter William Skeat, A Concise Etymological Dictionary of the English Language, "List of Doublets", p. 599ff (full text) 
+^ Edward A. Allen, "English Doublets", Publications of the Modern Language Association of America 23:2:184-239 (1908) doi:10.2307/456687 JSTOR 456687 
+^ Etymology is disputed; perhaps from Latin Christianus, as a euphemism; perhaps from Latin crista, referring to a symptom of iodine deficiency 
+^ Crosby, Henry Lamar, and John Nevin Schaeffer. 1928. An Introduction to Greek. section 66. 
+^ Thesaurus Linguae Latinae, s.v. 
+^ Century Dictionary and Cyclopedia, 1897, s.v., p. 4432 
+^ a b Hickey, Raymond. "Phonological change in English." In The Cambridge Handbook of English Historical Linguistics 12.10, edited by M. Kytö and P. Pahta. 
+^ a b Fruyt, Michèle. "Latin Vocabulary." In A Companion to the Latin Language, edited by J. Clackson. p. 152. 
+^ Eleanor Detreville, "An Overview of Latin Morphological Calques on Greek Technical Terms: Formation and Success", M.A. thesis, University of Georgia, 2015, full text 
+^ Joseph Owens, Étienne Henry Gilson, The Doctrine of Being in the Aristotelian Metaphysics, 1963, p. 140 
+^ F.A.C. Mantello, Medieval Latin, 1996, ISBN 0813208416, p. 276 
+^ Wilhelm Wundt et al., Ethics: An Investigation of the Facts and Laws of the Moral Life, 1897, p. 1:26 
+^ A.J. Woodman, "O MATRE PVLCHRA: The Logical Iambist: To the memory of Niall Rudd", The Classical Quarterly 68:1:192-198 (May 2018) doi:10.1017/S0009838818000228, footnote 26 
+^ Scheler, Manfred. 1977. Der englische Wortschatz. Berlin: Schmidt. 
+^ New General Service List, [1] 
+Baugh, Albert C., Thomas Cable. 2002. A History of the English Language, 5th edition. ISBN 0415280990
+Gaidatzi, Theopoula. July 1985. "Greek loanwords in English" (M.A. thesis). University of Leeds
+Konstantinidis, Aristidis. 2006. Η Οικουμενική Διάσταση της Ελληνικής Γλώσσας [The Universal Reach of the Greek Language]. Athens: self-published. ISBN 960-90338-2-2.
+Krill, Richard M. 1990. Greek and Latin in English Today. Bolchazy-Carducci Publishers. ISBN 0-86516-241-7.
+March, F. A. 1893. "The Influence of the Greeks on the English Language." The Chautauquan 16(6):660–66.
+—— 1893. "Greek in the English of Modern Science." The Chautauquan 17(1):20–23.
+Scheler, Manfred. 1977. Der englische Wortschatz [English vocabulary]. Berlin: Schmidt.
+Oxford English Dictionary (3rd ed.)
+Mathematical Words: Origins and Sources (John Aldrich, University of Southampton)
+v
+t
+e
+South African Afrikaans Zulu
+Afrikaans
+Zulu
+Indigenous languages of the Americas
+Arabic star names
+star names
+Chinese
+Hebrew
+India Dravidian Hindi Sanskrit
+Dravidian
+Hindi
+Sanskrit
+Indonesia
+Japanese
+Korean
+Malay
+Persian
+Philippines
+Turkic
+Urdu
+Etruscan
+Greek morphemes
+morphemes
+Romani
+Slavic Czech Polish Russian Ukrainian
+Czech
+Polish
+Russian
+Ukrainian
+Uralic Finnish Hungarian Sami
+Finnish
+Hungarian
+Sami
+Brittonic
+Gaulish
+Irish
+Scottish Gaelic
+Welsh
+Dutch place names Australia
+place names Australia
+Australia
+German pseudo-German
+pseudo-German
+Norwegian
+Old Norse
+Scots
+Swedish
+Yiddish
+French expressions with Anglo-Saxon variations pseudo-French
+expressions
+with Anglo-Saxon variations
+pseudo-French
+Italian musical terms
+musical terms
+Latin
+Portuguese
+Romanian
+Spanish
+Australian aboriginal
+Hawaiian
+Māori
+Polynesian
+Greek language
+Lists of English words of foreign origin
+Articles containing Mycenaean Greek-language text
+Articles containing Ancient Greek (to 1453)-language text
+Articles with short description
+Short description is different from Wikidata
+Articles containing Old English (ca. 450-1100)-language text
+Articles containing Latin-language text
+Articles containing Greek-language text
+Articles containing Italian-language text
+Articles containing Spanish-language text
+Articles containing Arabic-language text
+ This page was last edited on 12 June 2024, at 18:42 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 4.0; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Code of Conduct
+Developers
+Statistics
+Cookie statement
+Mobile view
+
+
+ 

@@ -1,0 +1,410 @@
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Create account 
+Log in 
+ Create account
+ Log in
+Contributions
+Talk
+  (Top)  
+   1 Types of diacritical marks     Toggle Types of diacritical marks subsection      1.1 Special characters       
+   1.1 Special characters     
+   2 Native English words     Toggle Native English words subsection      2.1 In historical versions of English       
+   2.1 In historical versions of English     
+   3 Words imported from other languages     Toggle Words imported from other languages subsection      3.1 Accent-addition and accent-removal       
+   3.1 Accent-addition and accent-removal     
+   4 Regional differences     Toggle Regional differences subsection      4.1 Canada         4.2 New Zealand       
+   4.1 Canada     
+   4.2 New Zealand     
+   5 Regional dialects     
+   6 Names with diacritics     
+   7 Typographical limitations     
+   8 See also     
+   9 Notes     
+   10 References     
+   11 External links     
+中文
+Article
+Talk
+Read
+Edit
+View history
+Read
+Edit
+View history
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Cite this page
+Get shortened URL
+Download QR code
+Wikidata item
+Download as PDF
+Printable version
+the acute accent (née) and grave accent (English poetry marking, changèd), modifying vowels or marking stresses
+the circumflex (entrepôt), borrowed from French
+the diaeresis (Zoë), indicating a second syllable in two consecutive vowels
+the tittle, the dot found on the regular small i and small j, is removed when another diacritic is required
+the macron (English poetry marking, lēad pronounced /liːd/, not /lɛd/), lengthening vowels, as in Māori; or indicating omitted n or m (in pre-Modern English, both in print and in handwriting).
+the breve (English poetry marking, drŏll pronounced /drɒl/, not /droʊl/), shortening vowels
+the umlaut (über), altering Germanic vowels
+the cedilla (soupçon, façade), in French, Portuguese and in Catalan it is a softening c, indicating 's-' not 'k-' pronunciation
+the tilde (Señor, João), in Spanish indicating palatalised n, and Portuguese indicating nasal a and o (although in Spanish and most source languages, the tilde is not considered a diacritic over the letter n but rather as an integral part of the distinct letter ñ; in Portuguese the sound is represented by "nh")
+the háček (as in Karel Čapek), often also called the haček in English (adapted from "háček", the Czech name, meaning "little hook".[a]), as Č/č, Š/š, Ř/ř (only in Czech), Ž/ž broadly turns "c" "s" "r" "z" into English "ch" "sh" "rzh"[b] "zh"  sounds respectively, and Ď/ď, Ľ/ľ (only in Slovak), Ň/ň and Ť/ť turn "/d/" "/l/" "/n/" and "/t/" into palatal "/ɟ/" "/ʎ/" "/ɲ/" and "/c/" sounds. In most fonts the caron looks like an apostrophe sitting inside the Slovak capital L, as "Ľ", but in fact is only another form of caron.
+the Polish crossed Ł and ogonek (as in Lech Wałęsa) – the former pronounced as English "w", the latter with varying pronunciation (see Ę and Ą)
+the Serbo-Croatian Latin crossed Đ (as in Franjo Tuđman or Zoran Đinđić), equivalent to the Cyrillic letter Dje
+the Maltese crossed Ħ (as in the Ħal- town prefix, Ħal Far Industrial Estate), a hard H
+the Danish and Norwegian crossed Ø (as in Galdhøpiggen); the front rounded O, which is written with an umlaut in Swedish and German
+the Norwegian, Danish and Swedish over-ring Å (as in Åland), the å vowel sound (usually /ͻː/)
+the Romanian Ș (as in Chișinău), the voiceless postalveolar fricative
+ċ is used for a voiceless palato-alveolar affricate /t͡ʃ/
+ġ for a palatal approximant /j/ (probably a voiced palatal fricative /ʝ/ in the earliest texts)
+Grave accents and macrons are used in some orthographies of Cumbrian in words such as steàn "stone", seùner "sooner" and pūnd "pound".[19]
+Diaereses are used in the Lincolnshire dialect, for example stoän "stone", goä "go" and maäke "make".[20]
+Grave accents, circumflexes and diaereses are used in the Dorset dialect, in words such as mornèn "morning", drîth "dryness" or "drought" and ceäkes "cakes".
+British: Charlotte Brontë, Emily Brontë (and other members of the Brontë family), Noël Coward, Zoë Wanamaker, Zoë Ball, Emeli Sandé, John le Carré
+American: Beyoncé Knowles, Chloë Grace Moretz, Chloë Sevigny, Renée Fleming, Renée Zellweger, Zoë Baird, Zoë Kravitz, Donté Stallworth, John C. Frémont, Robert M. Gagné, Roxanne Shanté, Janelle Monáe, Jhené Aiko, Louise Glück
+Australian: Renée Geyer, Zoë Badwi
+Lists of English words by country or language of origin
+List of French expressions in English
+List of German expressions in English
+Metal umlaut – Gratuitous diacritic used in the names of some rock bands
+^ háč is cognate to hook, and -ek is a diminutive suffix which can also be seen in the Polish language ogonek 
+^ actually, a simultaneous [ʒ] and trilled [r]; devoiced to [r̝̊] in contact with a voiceless consonant. See Czech phonology for more details. 
+^ .mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a{background-size:contain}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a{background-size:contain}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a{background-size:contain}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#2C882D;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911F}html.skin-theme-clientpref-night .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-night .mw-parser-output .cs1-hidden-error{color:#f8a397}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-os .mw-parser-output .cs1-hidden-error{color:#f8a397}html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911F}}Ambrose, Gavin; Harris, Paul (2007). The Fundamentals of Typography. AVA. p. 92. ISBN 9782940373451. OCLC 842600469. Diacritical marks –  Diacritical marks are a range of accents and other symbols, which indicate that the sound of a letter is modified during pronunciation. These are rare in English but relatively common in other languages. 
+^ Garner, Bryan A (2002). The Oxford Dictionary of American Usage and Style. p. 100. Diacritical Marks, also known as 'diacritics', are orthographical characters that indicate a special phonetic quality for a given character. They occur mostly in foreign languages. But in English a fair number of imported terms have diacritical marks" 
+^ a b Burchfield, R.W. (1996). Fowlers's Modern English Usage (3 ed.). Oxford University Press. p. 210. ISBN 0-19-869126-2. 
+^ Lennard, John (2006). The Poetry Handbook. p. 57. Though limited in English the following may be encountered: acute (née) and grave (changèd) accents, modifying vowels or marking stresses; the circumflex (entrepôt), indicating omitted s; the diaeresis (naïf), preventing a diphthong, or umlaut (über), altering Germanic vowels; the cedilla (soupçon), softening c; the tittle (frō [sic]), indicating omitted n or m, or macron (statūs), lengthening vowels; the tilde (Señor), indicating palatalised n; and the breve (drŏll = 'drol', not 'drowle'), shortening vowels.... 
+^ Cheng, Karen (2006). Designing Type. p. 212. The eszett (also spelled esszett or referred to as a 'sharp s') is not a diacritic, but a ligature that occurs only in the German language. In general, the eszett signifies an 'ss' letter combination. The use of the eszett has declined significantly over ..." 
+^ "Diacritics &amp; Special Characters". University of North Carolina. The following diacritics and special characters display: Diacritics: acute Á ; circumflex Â ; grave À ; tilde Ã ; umlaut Ä. Special characters: thorn, lowercase þ ; thorn, uppercase Þ. 
+^ Korpela, Jukka K. (2006). Unicode Explained. p. 195. Many other scripts use ligatures far more often. Ligatures as discussed here should not be confused with characters that originate from ligatures. For example, capital Latin letter "ae" ae (U+00E6) is an independent letter in Norwegian and .. 
+^ a b diaeresis: December 9, 1998. The Mavens' Word of the Day. Random House. 
+^ Umlauts in English?. General Questions. Straight Dope Message Board. 
+^ Norris, Mary (2012-04-26). "The Curse of the Diaeresis". The New Yorker. The special tool we use here at The New Yorker for punching out the two dots that we then center carefully over the second vowel in such words as "naïve" and "Laocoön" will be getting a workout this year, as the Democrats coöperate to reëlect the President. 
+^ Davidson, Misty (11 April 2021). "Borrowed Words–How English Borrows From Other Languages". Common Ground International Language Services. Retrieved 2 March 2023. 
+^ Garner, Bryan A. (2009). Garner's Modern American Usage. p. 248. Sometimes they survive indefinitely, but often they fall into disuse as terms are fully naturalised. Nobody today, for example, writes hôtel or rôle. 
+^ Knapp, Robbin D. (2005). German English Words: A Popular Dictionary of German Words Used in English. p. 108. When German words with umlauts are assimilated into the English language, they sometimes keep their umlauts (e.g., doppelgänger, Flügelhorn, föhn, Der Freischütz, führer, jäger, kümmel, Künstlerroman, schweizerkäse, über-), but often are ... 
+^ Bewes, Diccon (2012). Swiss Watching. In English, the most daring thing we do now is leave the umlaut off Zürich; not that any British ear would hear the difference anyway. For other official names, such as the houses of parliament, I have given only the German version, as it's the one used most often. 
+^ Crewdson, Patrick (11 September 2017). "Why Stuff is introducing macrons for te reo Māori words". Stuff.co.nz. Retrieved 29 May 2018. 
+^ "Official language to receive our best efforts". New Zealand Herald. 9 May 2018. Archived from the original on 7 April 2020. Retrieved 29 May 2018. 
+^ "Use of the double vowel in te reo Maaori at CM Health". Te Whatu Ora Counties Manukau. 20 June 2023. Retrieved 20 July 2023. 
+^ Keane, Basil (11 March 2010). "Mātauranga hangarau – information technology - Māori language on the internet". Te Ara – Encyclopedia of New Zealand. Retrieved 29 May 2018. 
+^ Gibson, Alexander Craig (1869). The Folk-speech of Cumberland and Some Districts Adjacent: Being Short Stories and Rhymes in the Dialects of the West Border Counties. J.R. Smith. 
+^ Peacock, Edward (1889). A Glossary of Words Used in the Wapentakes of Manley and Corringham, Lincolnshire Volumes 1-2. English dialect society. 
+^ Eliot, Simon; Rose, Jonathan (2011). A Companion to the History of the Book. p. 210. Within a short time, pages in metal type were combined with woodcut illustrations, later to be followed by metal engravings. Hebrew and Greek, with their vowel points and accents, and music posed problems of vertical as well as horizontal .. 
+^ "(Unknown)". Scholarly Publishing. ? (?): 335. 1982. ... after printed copies of the dissertation – printed by the traditional letterpress process, from metal type – had been deposited in ... The original languages often required diacritical marks not used in English or an alphabet other than the Roman. 
+^ Sassoon, Rosemary (1993). Computers and Typography. p. 59. character set limitations 
+^ Bunke, Horst; Shen-pei Wang, Patrick (1997). Handbook of character recognition and document image analysis. p. 276. Confusion due to typesetting convention is exacerbated in the character coded environment due to the unfortunate limitations of the ubiquitous ASCII character set and the lack of a single widely accepted international standard for representation of characters with diacritics 
+On Diacritics and Archaïsm - A blog
+v
+t
+e
+  ◌́   ◌̋  acute, double acute 
+  ◌᷄  apex 
+  ◌̆   ◌̑  breve, inverted breve 
+  ◌̌  caron, háček 
+  ◌̧  cedilla 
+  ◌̂  circumflex 
+  ◌̈  diaeresis, umlaut, other 
+  ◌̇   ◌̣  dot 
+  ◌̀   ◌̏  grave, double grave 
+  ◌̉  hook above 
+  ◌̡   ◌̢  palatal hook, retroflex hook 
+  ◌̛  horn 
+  ◌ͅ  iota subscript 
+  ◌̄  macron 
+  ◌̨  ogonek, nosinė 
+  ◌̊   ◌̥  overring, underring 
+  ◌͂  perispomene 
+  ◌͗  sicilicus 
+  ◌̃  tilde 
+  ◌῾   ◌᾿  rough breathing, smooth breathing 
+  ◌҄  kamora 
+  ◌҇  pokrytie 
+  ◌҃  titlo 
+  ं   ং   ଂ   ം  anusvara 
+  ऽ   ঽ   ଽ   ఽ   ഽ   ྅  avagraha 
+  ँ    ఁ   ྃ  chandrabindu 
+  ़  nuqta 
+  ्    ്    ్    ್   ්   ်  virama 
+  ः   ঃ   ଃ   ஃ  visarga 
+Arabic diacritics
+Greek diacritics
+Gurmukhī diacritics
+Hebrew diacritics
+diacritics in IPA
+Japanese kana diacritics   ◌゙   ◌゚  dakuten, handakuten 
+  ◌゙   ◌゚  dakuten, handakuten 
+Khmer diacritics
+Syriac diacritics
+Thai diacritics
+  ◌’  apostrophe 
+  ◌̸  bar 
+  ◌:  colon 
+  ◌,  comma 
+  ◌.  full stop/period 
+  ◌˗  hyphen 
+  ◌′  prime 
+  ^  caret (computing) 
+  °  degree symbol 
+  ~  tilde § Mathematics 
+  ◌  dotted circle (placeholder glyph character) 
+combining character § Unicode ranges
+English terms with diacritical marks Metal umlaut
+Metal umlaut
+Punctuation marks
+ Category: Diacritics
+English orthography
+Latin-script diacritics
+Pages using the Phonos extension
+Articles with short description
+Short description is different from Wikidata
+Articles using infobox templates with no data rows
+Pages with Spanish IPA
+Pages with Italian IPA
+Pages including recorded pronunciations
+Articles containing Māori-language text
+All articles with incomplete citations
+Articles with incomplete citations from April 2024
+Articles containing Bengali-language text
+Articles containing Odia-language text
+Articles containing Malayalam-language text
+Articles containing Telugu-language text
+Articles containing Tigrinya-language text
+Articles containing Kannada-language text
+Articles containing Sinhala-language text
+Articles containing Burmese-language text
+Articles containing Tamil-language text
+Articles containing Japanese-language text
+ This page was last edited on 24 May 2024, at 18:02 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 4.0; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Code of Conduct
+Developers
+Statistics
+Cookie statement
+Mobile view
+
+
+ 
+Main page
+Contents
+Current events
+Random article
+About Wikipedia
+Contact us
+Donate
+Help
+Learn to edit
+Community portal
+Recent changes
+Upload file
+Create account 
+Log in 
+ Create account
+ Log in
+Contributions
+Talk
+  (Top)  
+   1 Types of diacritical marks     Toggle Types of diacritical marks subsection      1.1 Special characters       
+   1.1 Special characters     
+   2 Native English words     Toggle Native English words subsection      2.1 In historical versions of English       
+   2.1 In historical versions of English     
+   3 Words imported from other languages     Toggle Words imported from other languages subsection      3.1 Accent-addition and accent-removal       
+   3.1 Accent-addition and accent-removal     
+   4 Regional differences     Toggle Regional differences subsection      4.1 Canada         4.2 New Zealand       
+   4.1 Canada     
+   4.2 New Zealand     
+   5 Regional dialects     
+   6 Names with diacritics     
+   7 Typographical limitations     
+   8 See also     
+   9 Notes     
+   10 References     
+   11 External links     
+中文
+Article
+Talk
+Read
+Edit
+View history
+Read
+Edit
+View history
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Cite this page
+Get shortened URL
+Download QR code
+Wikidata item
+Download as PDF
+Printable version
+the acute accent (née) and grave accent (English poetry marking, changèd), modifying vowels or marking stresses
+the circumflex (entrepôt), borrowed from French
+the diaeresis (Zoë), indicating a second syllable in two consecutive vowels
+the tittle, the dot found on the regular small i and small j, is removed when another diacritic is required
+the macron (English poetry marking, lēad pronounced /liːd/, not /lɛd/), lengthening vowels, as in Māori; or indicating omitted n or m (in pre-Modern English, both in print and in handwriting).
+the breve (English poetry marking, drŏll pronounced /drɒl/, not /droʊl/), shortening vowels
+the umlaut (über), altering Germanic vowels
+the cedilla (soupçon, façade), in French, Portuguese and in Catalan it is a softening c, indicating 's-' not 'k-' pronunciation
+the tilde (Señor, João), in Spanish indicating palatalised n, and Portuguese indicating nasal a and o (although in Spanish and most source languages, the tilde is not considered a diacritic over the letter n but rather as an integral part of the distinct letter ñ; in Portuguese the sound is represented by "nh")
+the háček (as in Karel Čapek), often also called the haček in English (adapted from "háček", the Czech name, meaning "little hook".[a]), as Č/č, Š/š, Ř/ř (only in Czech), Ž/ž broadly turns "c" "s" "r" "z" into English "ch" "sh" "rzh"[b] "zh"  sounds respectively, and Ď/ď, Ľ/ľ (only in Slovak), Ň/ň and Ť/ť turn "/d/" "/l/" "/n/" and "/t/" into palatal "/ɟ/" "/ʎ/" "/ɲ/" and "/c/" sounds. In most fonts the caron looks like an apostrophe sitting inside the Slovak capital L, as "Ľ", but in fact is only another form of caron.
+the Polish crossed Ł and ogonek (as in Lech Wałęsa) – the former pronounced as English "w", the latter with varying pronunciation (see Ę and Ą)
+the Serbo-Croatian Latin crossed Đ (as in Franjo Tuđman or Zoran Đinđić), equivalent to the Cyrillic letter Dje
+the Maltese crossed Ħ (as in the Ħal- town prefix, Ħal Far Industrial Estate), a hard H
+the Danish and Norwegian crossed Ø (as in Galdhøpiggen); the front rounded O, which is written with an umlaut in Swedish and German
+the Norwegian, Danish and Swedish over-ring Å (as in Åland), the å vowel sound (usually /ͻː/)
+the Romanian Ș (as in Chișinău), the voiceless postalveolar fricative
+ċ is used for a voiceless palato-alveolar affricate /t͡ʃ/
+ġ for a palatal approximant /j/ (probably a voiced palatal fricative /ʝ/ in the earliest texts)
+Grave accents and macrons are used in some orthographies of Cumbrian in words such as steàn "stone", seùner "sooner" and pūnd "pound".[19]
+Diaereses are used in the Lincolnshire dialect, for example stoän "stone", goä "go" and maäke "make".[20]
+Grave accents, circumflexes and diaereses are used in the Dorset dialect, in words such as mornèn "morning", drîth "dryness" or "drought" and ceäkes "cakes".
+British: Charlotte Brontë, Emily Brontë (and other members of the Brontë family), Noël Coward, Zoë Wanamaker, Zoë Ball, Emeli Sandé, John le Carré
+American: Beyoncé Knowles, Chloë Grace Moretz, Chloë Sevigny, Renée Fleming, Renée Zellweger, Zoë Baird, Zoë Kravitz, Donté Stallworth, John C. Frémont, Robert M. Gagné, Roxanne Shanté, Janelle Monáe, Jhené Aiko, Louise Glück
+Australian: Renée Geyer, Zoë Badwi
+Lists of English words by country or language of origin
+List of French expressions in English
+List of German expressions in English
+Metal umlaut – Gratuitous diacritic used in the names of some rock bands
+^ háč is cognate to hook, and -ek is a diminutive suffix which can also be seen in the Polish language ogonek 
+^ actually, a simultaneous [ʒ] and trilled [r]; devoiced to [r̝̊] in contact with a voiceless consonant. See Czech phonology for more details. 
+^ .mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free.id-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-free a{background-size:contain}.mw-parser-output .id-lock-limited.id-lock-limited a,.mw-parser-output .id-lock-registration.id-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-limited a,body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-registration a{background-size:contain}.mw-parser-output .id-lock-subscription.id-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .id-lock-subscription a{background-size:contain}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}body:not(.skin-timeless):not(.skin-minerva) .mw-parser-output .cs1-ws-icon a{background-size:contain}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#2C882D;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}html.skin-theme-clientpref-night .mw-parser-output .cs1-maint{color:#18911F}html.skin-theme-clientpref-night .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-night .mw-parser-output .cs1-hidden-error{color:#f8a397}@media(prefers-color-scheme:dark){html.skin-theme-clientpref-os .mw-parser-output .cs1-visible-error,html.skin-theme-clientpref-os .mw-parser-output .cs1-hidden-error{color:#f8a397}html.skin-theme-clientpref-os .mw-parser-output .cs1-maint{color:#18911F}}Ambrose, Gavin; Harris, Paul (2007). The Fundamentals of Typography. AVA. p. 92. ISBN 9782940373451. OCLC 842600469. Diacritical marks –  Diacritical marks are a range of accents and other symbols, which indicate that the sound of a letter is modified during pronunciation. These are rare in English but relatively common in other languages. 
+^ Garner, Bryan A (2002). The Oxford Dictionary of American Usage and Style. p. 100. Diacritical Marks, also known as 'diacritics', are orthographical characters that indicate a special phonetic quality for a given character. They occur mostly in foreign languages. But in English a fair number of imported terms have diacritical marks" 
+^ a b Burchfield, R.W. (1996). Fowlers's Modern English Usage (3 ed.). Oxford University Press. p. 210. ISBN 0-19-869126-2. 
+^ Lennard, John (2006). The Poetry Handbook. p. 57. Though limited in English the following may be encountered: acute (née) and grave (changèd) accents, modifying vowels or marking stresses; the circumflex (entrepôt), indicating omitted s; the diaeresis (naïf), preventing a diphthong, or umlaut (über), altering Germanic vowels; the cedilla (soupçon), softening c; the tittle (frō [sic]), indicating omitted n or m, or macron (statūs), lengthening vowels; the tilde (Señor), indicating palatalised n; and the breve (drŏll = 'drol', not 'drowle'), shortening vowels.... 
+^ Cheng, Karen (2006). Designing Type. p. 212. The eszett (also spelled esszett or referred to as a 'sharp s') is not a diacritic, but a ligature that occurs only in the German language. In general, the eszett signifies an 'ss' letter combination. The use of the eszett has declined significantly over ..." 
+^ "Diacritics &amp; Special Characters". University of North Carolina. The following diacritics and special characters display: Diacritics: acute Á ; circumflex Â ; grave À ; tilde Ã ; umlaut Ä. Special characters: thorn, lowercase þ ; thorn, uppercase Þ. 
+^ Korpela, Jukka K. (2006). Unicode Explained. p. 195. Many other scripts use ligatures far more often. Ligatures as discussed here should not be confused with characters that originate from ligatures. For example, capital Latin letter "ae" ae (U+00E6) is an independent letter in Norwegian and .. 
+^ a b diaeresis: December 9, 1998. The Mavens' Word of the Day. Random House. 
+^ Umlauts in English?. General Questions. Straight Dope Message Board. 
+^ Norris, Mary (2012-04-26). "The Curse of the Diaeresis". The New Yorker. The special tool we use here at The New Yorker for punching out the two dots that we then center carefully over the second vowel in such words as "naïve" and "Laocoön" will be getting a workout this year, as the Democrats coöperate to reëlect the President. 
+^ Davidson, Misty (11 April 2021). "Borrowed Words–How English Borrows From Other Languages". Common Ground International Language Services. Retrieved 2 March 2023. 
+^ Garner, Bryan A. (2009). Garner's Modern American Usage. p. 248. Sometimes they survive indefinitely, but often they fall into disuse as terms are fully naturalised. Nobody today, for example, writes hôtel or rôle. 
+^ Knapp, Robbin D. (2005). German English Words: A Popular Dictionary of German Words Used in English. p. 108. When German words with umlauts are assimilated into the English language, they sometimes keep their umlauts (e.g., doppelgänger, Flügelhorn, föhn, Der Freischütz, führer, jäger, kümmel, Künstlerroman, schweizerkäse, über-), but often are ... 
+^ Bewes, Diccon (2012). Swiss Watching. In English, the most daring thing we do now is leave the umlaut off Zürich; not that any British ear would hear the difference anyway. For other official names, such as the houses of parliament, I have given only the German version, as it's the one used most often. 
+^ Crewdson, Patrick (11 September 2017). "Why Stuff is introducing macrons for te reo Māori words". Stuff.co.nz. Retrieved 29 May 2018. 
+^ "Official language to receive our best efforts". New Zealand Herald. 9 May 2018. Archived from the original on 7 April 2020. Retrieved 29 May 2018. 
+^ "Use of the double vowel in te reo Maaori at CM Health". Te Whatu Ora Counties Manukau. 20 June 2023. Retrieved 20 July 2023. 
+^ Keane, Basil (11 March 2010). "Mātauranga hangarau – information technology - Māori language on the internet". Te Ara – Encyclopedia of New Zealand. Retrieved 29 May 2018. 
+^ Gibson, Alexander Craig (1869). The Folk-speech of Cumberland and Some Districts Adjacent: Being Short Stories and Rhymes in the Dialects of the West Border Counties. J.R. Smith. 
+^ Peacock, Edward (1889). A Glossary of Words Used in the Wapentakes of Manley and Corringham, Lincolnshire Volumes 1-2. English dialect society. 
+^ Eliot, Simon; Rose, Jonathan (2011). A Companion to the History of the Book. p. 210. Within a short time, pages in metal type were combined with woodcut illustrations, later to be followed by metal engravings. Hebrew and Greek, with their vowel points and accents, and music posed problems of vertical as well as horizontal .. 
+^ "(Unknown)". Scholarly Publishing. ? (?): 335. 1982. ... after printed copies of the dissertation – printed by the traditional letterpress process, from metal type – had been deposited in ... The original languages often required diacritical marks not used in English or an alphabet other than the Roman. 
+^ Sassoon, Rosemary (1993). Computers and Typography. p. 59. character set limitations 
+^ Bunke, Horst; Shen-pei Wang, Patrick (1997). Handbook of character recognition and document image analysis. p. 276. Confusion due to typesetting convention is exacerbated in the character coded environment due to the unfortunate limitations of the ubiquitous ASCII character set and the lack of a single widely accepted international standard for representation of characters with diacritics 
+On Diacritics and Archaïsm - A blog
+v
+t
+e
+  ◌́   ◌̋  acute, double acute 
+  ◌᷄  apex 
+  ◌̆   ◌̑  breve, inverted breve 
+  ◌̌  caron, háček 
+  ◌̧  cedilla 
+  ◌̂  circumflex 
+  ◌̈  diaeresis, umlaut, other 
+  ◌̇   ◌̣  dot 
+  ◌̀   ◌̏  grave, double grave 
+  ◌̉  hook above 
+  ◌̡   ◌̢  palatal hook, retroflex hook 
+  ◌̛  horn 
+  ◌ͅ  iota subscript 
+  ◌̄  macron 
+  ◌̨  ogonek, nosinė 
+  ◌̊   ◌̥  overring, underring 
+  ◌͂  perispomene 
+  ◌͗  sicilicus 
+  ◌̃  tilde 
+  ◌῾   ◌᾿  rough breathing, smooth breathing 
+  ◌҄  kamora 
+  ◌҇  pokrytie 
+  ◌҃  titlo 
+  ं   ং   ଂ   ം  anusvara 
+  ऽ   ঽ   ଽ   ఽ   ഽ   ྅  avagraha 
+  ँ    ఁ   ྃ  chandrabindu 
+  ़  nuqta 
+  ्    ്    ్    ್   ්   ်  virama 
+  ः   ঃ   ଃ   ஃ  visarga 
+Arabic diacritics
+Greek diacritics
+Gurmukhī diacritics
+Hebrew diacritics
+diacritics in IPA
+Japanese kana diacritics   ◌゙   ◌゚  dakuten, handakuten 
+  ◌゙   ◌゚  dakuten, handakuten 
+Khmer diacritics
+Syriac diacritics
+Thai diacritics
+  ◌’  apostrophe 
+  ◌̸  bar 
+  ◌:  colon 
+  ◌,  comma 
+  ◌.  full stop/period 
+  ◌˗  hyphen 
+  ◌′  prime 
+  ^  caret (computing) 
+  °  degree symbol 
+  ~  tilde § Mathematics 
+  ◌  dotted circle (placeholder glyph character) 
+combining character § Unicode ranges
+English terms with diacritical marks Metal umlaut
+Metal umlaut
+Punctuation marks
+ Category: Diacritics
+English orthography
+Latin-script diacritics
+Pages using the Phonos extension
+Articles with short description
+Short description is different from Wikidata
+Articles using infobox templates with no data rows
+Pages with Spanish IPA
+Pages with Italian IPA
+Pages including recorded pronunciations
+Articles containing Māori-language text
+All articles with incomplete citations
+Articles with incomplete citations from April 2024
+Articles containing Bengali-language text
+Articles containing Odia-language text
+Articles containing Malayalam-language text
+Articles containing Telugu-language text
+Articles containing Tigrinya-language text
+Articles containing Kannada-language text
+Articles containing Sinhala-language text
+Articles containing Burmese-language text
+Articles containing Tamil-language text
+Articles containing Japanese-language text
+ This page was last edited on 24 May 2024, at 18:02 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 4.0; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policy
+About Wikipedia
+Disclaimers
+Contact Wikipedia
+Code of Conduct
+Developers
+Statistics
+Cookie statement
+Mobile view
+
+
+ 
