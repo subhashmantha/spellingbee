@@ -1,0 +1,64 @@
+PlayVocabBee {
+    background: blue;
+    color: black;
+    layout: grid;
+    grid_size: 8 3;
+}
+Horizontal {
+    background: yellow;
+    color: black;
+}
+Screen {
+    background: blue;
+}
+VerticalScroll {
+    align: center middle;
+}
+
+RadioButton {
+    width: 80%;
+}
+RadioSet {
+    column-span: 3;
+}
+
+Button {
+background: yellow;
+    border:green;
+    width: 20%;
+    color: black;
+
+}
+
+TextArea{
+background: white;
+    border:green;
+}
+
+Input{
+background: gray;
+    border:green;
+    width: 80%;
+}
+
+Label
+{
+background: gray;
+    border:green;
+
+}
+
+#spellingbee
+{row-span: 1;
+    padding: 3;
+    width: 100%;}
+
+#vocabbee
+{row-span: 1;
+    padding: 3;
+    width: 100%;}
+
+#altvocabbee
+{row-span: 1;
+    padding: 3;
+    width: 100%;}

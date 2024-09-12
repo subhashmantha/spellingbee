@@ -3,6 +3,8 @@ def vocabulary_bee():
     from load_data import read_load_data
     import random
     import pyttsx3
+    from gtts import gTTS
+    from pygame import mixer
 
     sg.theme('Green Mono')  # Let's set our own color theme
     score=0
@@ -15,13 +17,17 @@ def vocabulary_bee():
     word2 = ''
     word3 = ''
     word4 = ''
+    loo = ''
     used_words = list()
     # STEP 1 define the layout_vocab
     layout_vocab = [
                 [sg.Text('You are Playing Vocabulary Bee',font=('arial',18,'bold'),auto_size_text=True)],
                 [sg.Text('Enter the number of words you would like to play:'),sg.InputText(key='-IN0-'),sg.Button('Start') ],
                 [sg.Text('Score :'),sg.Text(score,key='-SCORE-') ],
-                [sg.Text(word,key='-WORD-',font=('arial',12,'bold'),auto_size_text=True),sg.Text('::'),sg.Text(part_of_speech,key='-POS-',font=('arial',12,'italic'),auto_size_text=True),sg.Button('Speak') ],
+                [sg.Text(word,key='-WORD-',font=('arial',12,'bold'),auto_size_text=True),],
+                [sg.Text('::'),sg.Text(part_of_speech,key='-POS-',font=('arial',12,'italic'),auto_size_text=True),],
+                [sg.Text('::'),sg.Text(loo, key='-LOO-', font=('arial', 12, 'italic'), auto_size_text=True),],
+                [sg.Button('Speak') ],
                 [sg.Radio('', group_id=1),sg.Text(word1,key='-WORD1-',font=('arial',12),auto_size_text=True), ],
                 [sg.Radio('', group_id=1),sg.Text(word2,key='-WORD2-',font=('arial',12),auto_size_text=True), ],
                 [sg.Radio('', group_id=1),sg.Text(word3,key='-WORD3-',font=('arial',12),auto_size_text=True),],
@@ -49,6 +55,7 @@ def vocabulary_bee():
             word = c[a[count]].get('word', 'None')
             defn = c[a[count]].get('meaning', 'None')
             pos = c[a[count]].get('part_of_speech', 'None')
+            loo = c[a[count]].get('origins', 'None')
             other_choices = random.choices(b, k=3)
             other_choices.append(defn)
             random.shuffle(other_choices)
@@ -59,9 +66,22 @@ def vocabulary_bee():
             window_vocab['-WORD3-'].update(word3)
             window_vocab['-WORD4-'].update(word4)
             window_vocab['-POS-'].update(pos)
+            window_vocab['-LOO-'].update(loo)
         if event == 'Speak':
-          engine.say(word)
-          engine.runAndWait()
+            tts = gTTS(word)
+
+            try:
+                tts.save('data/'+word + '.mp3')
+            except:
+                print('file exists')
+            try:
+                mixer.init()
+                mixer.music.load("data/{}.mp3".format(word))
+                mixer.music.play()
+            except:
+                # time.sleep(10)
+                engine.say(word)
+                engine.runAndWait()
         elif event == 'Submit':
           s = other_choices.index(defn)
           if values[s] == True and  word not in used_words:
@@ -77,6 +97,7 @@ def vocabulary_bee():
           word = c[a[count]].get('word', 'None')
           defn = c[a[count]].get('meaning', 'None')
           pos = c[a[count]].get('part_of_speech', 'None')
+          loo = c[a[count]].get('origins', 'None')
           other_choices = random.choices(b, k=3)
           other_choices.append(defn)
           random.shuffle(other_choices)
@@ -88,6 +109,7 @@ def vocabulary_bee():
           window_vocab['-WORD4-'].update(word4)
           window_vocab['-POS-'].update(pos)
           window_vocab['-CDEFN-'].update('')
+          window_vocab['-LOO-'].update(loo)
         elif event == 'Next':
           count=min(int(values.get('-IN0-'))-1,count+1)
           s = other_choices.index(defn)
@@ -95,6 +117,7 @@ def vocabulary_bee():
           word = c[a[count]].get('word', 'None')
           defn = c[a[count]].get('meaning', 'None')
           pos = c[a[count]].get('part_of_speech', 'None')
+          loo = c[a[count]].get('origins', 'None')
           other_choices = random.choices(b, k=3)
           other_choices.append(defn)
           random.shuffle(other_choices)
@@ -106,6 +129,7 @@ def vocabulary_bee():
           window_vocab['-WORD4-'].update(word4)
           window_vocab['-POS-'].update(pos)
           window_vocab['-CDEFN-'].update('')
+          window_vocab['-LOO-'].update(loo)
         elif event == 'Back' or count == int(values.get('-IN0-'))-1:
           break
     window_vocab.close()

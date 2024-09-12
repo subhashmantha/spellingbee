@@ -5,7 +5,7 @@ def spelling_bee():
     import pyttsx3
     from gtts import gTTS
     from pygame import mixer
-    import time
+    # import time
 
     sg.theme('Light Blue 7')  # Let's set our own color theme
     score=0
@@ -48,7 +48,7 @@ def spelling_bee():
             pos = c[a[count]].get('part_of_speech', 'None')
             loo = c[a[count]].get('origins', 'None')
 
-        if event == sg.WIN_CLOSED or event == 'Exit':     # If user closed window_spelling with X or if user clicked "Exit" button then exit
+        if event == sg.WIN_CLOSED or event == 'Exit' or event=='Back':     # If user closed window_spelling with X or if user clicked "Exit" button then exit
           break
         if event == 'Back' or len(used_words) == len(a):
           break
@@ -64,15 +64,17 @@ def spelling_bee():
 
 
             try:
-                tts.save(word + '.mp3')
+                tts.save('data/'+word + '.mp3')
             except:
                 print('file exists')
-            mixer.init()
-            mixer.music.load("{}.mp3".format(word))
-            mixer.music.play()
-            # time.sleep(10)
-            # engine.say(word)
-            # engine.runAndWait()
+            try:
+                mixer.init()
+                mixer.music.load("data/{}.mp3".format(word))
+                mixer.music.play()
+            except:
+                # time.sleep(10)
+                engine.say(word)
+                engine.runAndWait()
         if event == 'Definition':
             window_spelling['-DEFN-'].update(defn)
         if event == 'Part Of Speech':

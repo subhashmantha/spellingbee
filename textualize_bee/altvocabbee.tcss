@@ -1,0 +1,57 @@
+PlayApp {
+    background: $primary-lighten-3;
+    color: $text;
+    layout: grid;
+
+
+}
+Screen {
+    background: white;
+    layout: grid;
+    grid_size: 3 8;
+}
+VerticalScroll {
+    align: center middle;
+}
+
+RadioButton {
+    width: 80%;
+}
+RadioSet {
+    width: 100%;
+}
+
+Static {
+    background: white;
+    color: blue;
+    border: heavy blue;
+}
+
+Button {
+background: white;
+    border:green;
+    width: 20%;
+
+}
+
+TextArea{
+background: white;
+    border:green;
+
+}
+
+Input{
+background: white;
+    border:green;
+    width: 80%;
+
+}
+
+Label
+{
+background: white;
+    border:green;
+
+}
+
+

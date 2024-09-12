@@ -1,0 +1,79 @@
+PlaySpellBee {
+    background: blue;
+    layout: grid;
+    grid_size: 3 8;
+}
+Button {
+background: yellow;
+    border:green;
+    color: black;
+}
+#wordcount {
+    column-span:2;
+    padding: 3;
+}
+#submit{
+    border:green;
+    column-span:1;
+    padding: 3;
+}
+#score {
+    border:green;
+    column-span:3;
+    padding: 3;
+}
+#speak {
+    column-span: 1;  /* Didn't need to be set explicitly. */
+    padding: 3;
+}
+#defn {
+    column-span: 1;
+    padding: 3;
+}
+#defntext {
+    column-span: 2;
+    padding: 3;
+}
+#pos {
+    column-span: 1;
+    padding: 3;
+}
+#postext {
+    column-span: 2;
+    width:85%;
+    padding: 3;
+}
+#loo {
+    column-span: 1;
+    width:15%;
+    padding: 3;
+}
+#lootext {
+    column-span: 2;
+    width:85%;
+    padding: 3;
+}
+#correctspell {
+    column-span: 2;
+    /* Default value is 1. */
+   padding: 3;
+}
+#answer {
+    column-span: 1;
+    padding: 3;
+}
+#next {
+    column-span: 1;
+    padding: 3;
+
+}
+#previous {
+    column-span: 1;
+    padding: 3;
+
+}
+#exit {
+    column-span: 1;
+    padding: 3;
+
+}

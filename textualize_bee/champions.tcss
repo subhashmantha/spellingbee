@@ -1,0 +1,31 @@
+Play {
+    background: white;
+    layout: grid;
+    grid_size: 1 3;
+}
+Button {
+background: white;
+    border:green;
+}
+#spellingbees
+{   background: white;
+    border:green;
+    row-span: 1;
+    padding: 3;
+    width: 100%;}
+
+#vocabbees
+{background: white;
+    border:green;
+    row-span: 1;
+    padding: 3;
+    width: 100%;}
+
+#altvocabbees
+{background: white;
+    border:green;
+    row-span: 1;
+    padding: 3;
+    width: 100%;}
+
+

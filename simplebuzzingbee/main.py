@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 from spelling_bee import spelling_bee
 from vocabulary_bee import vocabulary_bee
+from vocabulary_bee_v2 import vocabulary_bee_v2
 sg.theme('Light Grey 4')  # Let's set our own color theme
 
 # STEP 1 define the layout
@@ -8,6 +9,7 @@ layout = [
             [sg.Text('Build your vocabulary',font=('arial',18,'bold'),auto_size_text=True)],
             [sg.Button('Spelling Bee!'), ],
             [sg.Button('Vocabulary Bee!'), ],
+            [sg.Button('Vocabulary Bee alternate version!'), ],
             [sg.Button('Exit')]
          ]
 
@@ -24,6 +26,9 @@ while True:
       print('You pressed the Spelling Bee button')
       spelling_bee()
     if event == 'Vocabulary Bee!':
-      print('You pressed the VOcabulary Bee button')
+      print('You pressed the Vocabulary Bee button')
       vocabulary_bee()
+    if event == 'Vocabulary Bee alternate version!':
+      print('You pressed the Vocabulary Bee button')
+      vocabulary_bee_v2()
 window.close()
